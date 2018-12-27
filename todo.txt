@@ -1,0 +1,8 @@
+update icons
+add min and max width and height
+update aesthetic of buttons and stuff
+edit readme for github
+add multiple scenes
+add interaction with storage, such as history stored in txt file
+add uninstall option
+

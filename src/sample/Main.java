@@ -7,7 +7,6 @@ import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.FlowPane;
-import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
 
 public class Main extends Application {
@@ -51,7 +50,7 @@ public class Main extends Application {
 
         FlowPane flowpane = new FlowPane();
         flowpane.getChildren().addAll(d4button, d6button, d8button);
-        
+
         layout.setTop(flowpane);
         layout.setCenter(rollLabel);
 
