@@ -17,11 +17,11 @@ public class Main extends Application {
     final int WINDOW_MIN_WIDTH = 250;
     final int WINDOW_MIN_HEIGHT = 250;
 
-    Button d4button, d6button, d8button, d10button, d12button, d20button;
+    Button d4button, d6button, d8button, d10button, d12button, d20button, customDieButton;
 
     public static Label rollLabel;
 
-    public static TextField numDice;
+    public static TextField numDice, customSides;
 
     @Override
     public void start(Stage window) throws Exception {
@@ -31,10 +31,33 @@ public class Main extends Application {
         window.setMinHeight(WINDOW_MIN_HEIGHT);
 
         //http://iconhandbook.co.uk/reference/chart/windows/
+        //http://iconhandbook.co.uk/reference/chart/osx/
+        //https://convertico.com/
+        //https://cloudconvert.com/png-to-icns
         window.getIcons().addAll(
-                new Image("/img/icon64.png"),
+                new Image("/img/icon16.ico"),
+                new Image("/img/icon24.ico"),
+                new Image("/img/icon32.ico"),
+                new Image("/img/icon40.ico"),
+                new Image("/img/icon48.ico"),
+                new Image("/img/icon64.ico"),
+                new Image("/img/icon128.ico"),
+                new Image("/img/icon256.ico"),
+
+                new Image("/img/icon16.png"),
+                new Image("/img/icon24.png"),
                 new Image("/img/icon32.png"),
-                new Image("/img/icon16.png")
+                new Image("/img/icon40.png"),
+                new Image("/img/icon48.png"),
+                new Image("/img/icon64.png"),
+                new Image("/img/icon128.png"),
+                new Image("/img/icon256.png"),
+
+                new Image("/img/icon16.icns"),
+                new Image("/img/icon32.icns"),
+                new Image("/img/icon48.icns"),
+                new Image("/img/icon128.icns"),
+                new Image("/img/icon256.icns")
         );
 
         d4button = new Button();
@@ -43,6 +66,7 @@ public class Main extends Application {
         d10button = new Button();
         d12button = new Button();
         d20button = new Button();
+        customDieButton = new Button();
 
         d4button.setText("D4");
         d6button.setText("D6");
@@ -50,6 +74,7 @@ public class Main extends Application {
         d10button.setText("D10");
         d12button.setText("D12");
         d20button.setText("D20");
+        customDieButton.setText("Custom Die");
 
         d4button.setOnAction(e -> Util.doRolls(4) );
         d6button.setOnAction(e -> Util.doRolls(6) );
@@ -57,16 +82,25 @@ public class Main extends Application {
         d10button.setOnAction(e -> Util.doRolls(10) );
         d12button.setOnAction(e -> Util.doRolls(12) );
         d20button.setOnAction(e -> Util.doRolls(20) );
+        customDieButton.setOnAction(e -> Util.doRolls(-1) );
+
+        customDieButton.setId("customDieButton");
 
         rollLabel = new Label("Roll: ");
 
         numDice = new TextField();
         numDice.setText("1");
 
+        customSides = new TextField();
+        customSides.setText("2");
+
+        Label customSidesLabel = new Label("    Custom Die Sides: ");
+        Label numDiceLabel = new Label("Number of Dice: ");
+
         BorderPane layout = new BorderPane();
 
         FlowPane flowpane = new FlowPane();
-        flowpane.getChildren().addAll(numDice, d4button, d6button, d8button, d10button, d12button, d20button);
+        flowpane.getChildren().addAll(numDiceLabel, numDice, d4button, d6button, d8button, d10button, d12button, d20button, customSidesLabel, customSides, customDieButton);
 
         layout.setTop(flowpane);
         layout.setCenter(rollLabel);
@@ -79,6 +113,15 @@ public class Main extends Application {
             }
             if(textVal.length()>4) { //4 is max digits for 1000 which is maxRolls
                 numDice.setText(textVal.substring(0,4) );
+            }
+        });
+        customSides.textProperty().addListener( e ->  {
+            String textVal = customSides.getText();
+            if(!textVal.matches("\\d*")) { //digits only
+                customSides.setText(textVal.replaceAll("[^\\d]", ""));
+            }
+            if(textVal.length()>9) { //max 9 digits
+                customSides.setText(textVal.substring(0,9) );
             }
         });
 

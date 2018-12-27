@@ -2,6 +2,14 @@
 https://docs.oracle.com/javafx/2/api/javafx/scene/doc-files/cssref.html
 */
 
+* {
+    -fx-font-family: "Arial";
+}
+
+BorderPane {
+    -fx-background-color: #333;
+}
+
 Button {
 	-fx-background-color: #339;
 	-fx-text-fill: #fff;
@@ -18,16 +26,21 @@ Button:pressed {
 	-fx-background-color: #339;	
 }
 
+#customDieButton {
+    -fx-pref-width: 90;
+}
+
 TextField {
 	-fx-background-color: #66c;
 	-fx-text-fill: #fff;
 	-fx-background-radius: 6,6,6;
 	-fx-pref-height: 45;
-	-fx-pref-width: 180;
+	-fx-pref-width: 90;
     -fx-background-insets: 2;
     -fx-alignment: center;
 }
 
 Label {
     -fx-wrap-text: true;
+    -fx-text-fill: #fff;
 }
