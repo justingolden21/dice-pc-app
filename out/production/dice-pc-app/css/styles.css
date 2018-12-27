@@ -1,0 +1,33 @@
+/*
+https://docs.oracle.com/javafx/2/api/javafx/scene/doc-files/cssref.html
+*/
+
+Button {
+	-fx-background-color: #339;
+	-fx-text-fill: #fff;
+	-fx-background-radius: 6,6,6;
+	-fx-pref-height: 45;
+	-fx-pref-width: 45;
+    -fx-background-insets: 2;
+    -fx-text-alignment: center;
+}
+Button:hover {
+	-fx-background-color: #66c;
+}
+Button:pressed {
+	-fx-background-color: #339;	
+}
+
+TextField {
+	-fx-background-color: #66c;
+	-fx-text-fill: #fff;
+	-fx-background-radius: 6,6,6;
+	-fx-pref-height: 45;
+	-fx-pref-width: 180;
+    -fx-background-insets: 2;
+    -fx-alignment: center;
+}
+
+Label {
+    -fx-wrap-text: true;
+}

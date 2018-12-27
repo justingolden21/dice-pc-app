@@ -1,7 +1,5 @@
 package sample;
 
-import java.lang.reflect.Array;
-
 public class Util {
 
     static int maxRolls = 1000;
@@ -31,8 +29,10 @@ public class Util {
         }
         rollList += ")";
 
+        if(numRolls==1) {
+            rollList = "";
+        }
+
         Main.rollLabel.setText("Rolled " + Integer.toString(numRolls) + "D" + Integer.toString(sides) + ": " + Integer.toString(sum) + " " + rollList );
-
     }
-
 }
