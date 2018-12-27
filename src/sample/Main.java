@@ -10,7 +10,7 @@ import javafx.stage.Stage;
 
 public class Main extends Application {
 
-    Button button;
+    Button d4button;
 
 
     Label rollLabel;
@@ -19,9 +19,9 @@ public class Main extends Application {
     public void start(Stage window) throws Exception {
         window.setTitle("Die Roller");
 
-        button = new Button();
-        button.setText("D4");
-        button.setOnAction(e -> {
+        d4button = new Button();
+        d4button.setText("D4");
+        d4button.setOnAction(e -> {
             rollLabel.setText( "Rolled D4: " + Integer.toString(Util.getRoll(4) ) );
         });
 
@@ -30,7 +30,7 @@ public class Main extends Application {
         BorderPane layout = new BorderPane();
         HBox hbox = new HBox();
         layout.setTop(hbox);
-        layout.setBottom(button);
+        layout.setBottom(d4button);
         layout.setCenter(rollLabel);
 
         Scene scene = new Scene(layout, 300, 250);
