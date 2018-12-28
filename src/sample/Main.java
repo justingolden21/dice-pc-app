@@ -76,13 +76,13 @@ public class Main extends Application {
         d20button.setText("D20");
         customDieButton.setText("Custom Die");
 
-        d4button.setOnAction(e -> Util.doRolls(4) );
-        d6button.setOnAction(e -> Util.doRolls(6) );
-        d8button.setOnAction(e -> Util.doRolls(8) );
-        d10button.setOnAction(e -> Util.doRolls(10) );
-        d12button.setOnAction(e -> Util.doRolls(12) );
-        d20button.setOnAction(e -> Util.doRolls(20) );
-        customDieButton.setOnAction(e -> Util.doRolls(-1) );
+        d4button.setOnAction(e -> Rolls.doRolls(4) );
+        d6button.setOnAction(e -> Rolls.doRolls(6) );
+        d8button.setOnAction(e -> Rolls.doRolls(8) );
+        d10button.setOnAction(e -> Rolls.doRolls(10) );
+        d12button.setOnAction(e -> Rolls.doRolls(12) );
+        d20button.setOnAction(e -> Rolls.doRolls(20) );
+        customDieButton.setOnAction(e -> Rolls.doRolls(-1) );
 
         customDieButton.setId("customDieButton");
 

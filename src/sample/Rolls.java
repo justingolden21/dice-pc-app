@@ -1,6 +1,6 @@
 package sample;
 
-public class Util {
+public class Rolls {
 
     static int maxRolls = 1000, maxSides = 100000000;
 
@@ -47,6 +47,9 @@ public class Util {
             rollList = "";
         }
 
-        Main.rollLabel.setText("Rolled " + Integer.toString(numRolls) + "D" + Integer.toString(sides) + ": " + Integer.toString(sum) + " " + rollList );
+        String rollString = "Rolled " + Integer.toString(numRolls) + "D" + Integer.toString(sides) + ": " + Integer.toString(sum) + " " + rollList;
+        Files.appendText(rollString);
+        Main.rollLabel.setText(rollString);
+
     }
 }
