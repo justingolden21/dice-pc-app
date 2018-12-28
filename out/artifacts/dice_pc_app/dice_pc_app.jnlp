@@ -8,7 +8,7 @@
   </information>
   <resources>
     <j2se version="1.6+" href="http://java.sun.com/products/autodl/j2se"/>
-    <jar href="dice_pc_app.jar" size="132452" download="eager" />
+    <jar href="dice_pc_app.jar" size="133993" download="eager" />
   </resources>
   <jfx:javafx-desc  width="500" height="500" main-class="sample.Main"  name="dice-pc-app" />
   <update check="background"/>
