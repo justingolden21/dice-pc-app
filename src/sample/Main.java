@@ -12,12 +12,12 @@ import javafx.stage.Stage;
 
 public class Main extends Application {
 
-    final int WINDOW_WIDTH = 500;
-    final int WINDOW_HEIGHT = 500;
-    final int WINDOW_MIN_WIDTH = 250;
-    final int WINDOW_MIN_HEIGHT = 250;
+    final static int WINDOW_WIDTH = 500;
+    final static int WINDOW_HEIGHT = 500;
+    final static int WINDOW_MIN_WIDTH = 250;
+    final static int WINDOW_MIN_HEIGHT = 250;
 
-    Button d4button, d6button, d8button, d10button, d12button, d20button, customDieButton;
+    Button d4button, d6button, d8button, d10button, d12button, d20button, customDieButton, historyButton;
 
     public static Label rollLabel;
 
@@ -60,21 +60,14 @@ public class Main extends Application {
                 new Image("/img/icon256.icns")
         );
 
-        d4button = new Button();
-        d6button = new Button();
-        d8button = new Button();
-        d10button = new Button();
-        d12button = new Button();
-        d20button = new Button();
-        customDieButton = new Button();
-
-        d4button.setText("D4");
-        d6button.setText("D6");
-        d8button.setText("D8");
-        d10button.setText("D10");
-        d12button.setText("D12");
-        d20button.setText("D20");
-        customDieButton.setText("Custom Die");
+        d4button = new Button("D4");
+        d6button = new Button("D6");
+        d8button = new Button("D8");
+        d10button = new Button("D10");
+        d12button = new Button("D12");
+        d20button = new Button("D20");
+        customDieButton = new Button("Custom Die");
+        historyButton = new Button("History ");
 
         d4button.setOnAction(e -> Rolls.doRolls(4) );
         d6button.setOnAction(e -> Rolls.doRolls(6) );
@@ -84,7 +77,10 @@ public class Main extends Application {
         d20button.setOnAction(e -> Rolls.doRolls(20) );
         customDieButton.setOnAction(e -> Rolls.doRolls(-1) );
 
-        customDieButton.setId("customDieButton");
+        historyButton.setOnAction(e -> Alert.display("History", Files.getText() ) );
+
+        customDieButton.getStyleClass().add("wideButton");
+        historyButton.getStyleClass().add("wideButton");
 
         rollLabel = new Label("Roll: ");
 
@@ -104,6 +100,8 @@ public class Main extends Application {
 
         layout.setTop(flowpane);
         layout.setCenter(rollLabel);
+
+        layout.setBottom(historyButton);
 
         //https://stackoverflow.com/questions/7555564/what-is-the-recommended-way-to-make-a-numeric-textfield-in-javafx
         numDice.textProperty().addListener( e ->  {
@@ -125,9 +123,9 @@ public class Main extends Application {
             }
         });
 
-        Scene scene = new Scene(layout, WINDOW_WIDTH, WINDOW_HEIGHT);
-        scene.getStylesheets().add("/css/styles.css");
-        window.setScene(scene);
+        Scene mainScene = new Scene(layout, WINDOW_WIDTH, WINDOW_HEIGHT);
+        mainScene.getStylesheets().add("/css/styles.css");
+        window.setScene(mainScene);
         window.show();
     }
 
